@@ -10,7 +10,7 @@ import threading
 import json
 
 __author__ = "TondmiCZ"
-__version__ = "2.0 Clean"
+__version__ = "2.0"
 __copyright__ = "2025 by TondmiCZ"
 
 class FacialExpressionMaker:
@@ -32,7 +32,7 @@ class FacialExpressionMaker:
         style.configure('TButton', background='#404040', foreground='#ffffff')
         style.map('TButton', background=[('active', '#505050')])
         
-        # Entry pole - světlé pozadí, černý text pro lepší čitelnost
+        
         style.configure('TEntry', background='#ffffff', foreground='#000000', insertcolor='#000000')
         
         style.configure('TProgressbar', background='#00aa00', troughcolor='#404040')
@@ -44,8 +44,6 @@ class FacialExpressionMaker:
         
         frame = ttk.Frame(self.root, padding=15)
         frame.pack(pady=20)
-
-        # Input/Output sekce
         ttk.Label(frame, text="WAV soubory:").grid(row=0, column=0, sticky="w")
         self.entry_wav = ttk.Entry(frame, width=60)
         self.entry_wav.grid(row=0, column=1, padx=5)
@@ -56,12 +54,11 @@ class FacialExpressionMaker:
         self.entry_output.grid(row=1, column=1, padx=5)
         ttk.Button(frame, text="Procházet", command=self.select_output).grid(row=1, column=2)
 
-        # Progress bar
+
         self.progress_var = tk.DoubleVar()
         self.progress_bar = ttk.Progressbar(self.root, variable=self.progress_var, maximum=100)
         self.progress_bar.pack(fill="x", padx=20, pady=10)
 
-        # Tlačítka
         btn_frame = ttk.Frame(self.root)
         btn_frame.pack(pady=10)
         
@@ -71,7 +68,7 @@ class FacialExpressionMaker:
         self.btn_cancel = ttk.Button(btn_frame, text="Zrušit", command=self.cancel_conversion, state="disabled")
         self.btn_cancel.pack(side="left", padx=5)
 
-        # Status bar
+      
         self.status_var = tk.StringVar(value="Připraven")
         status_bar = ttk.Label(self.root, textvariable=self.status_var, relief=tk.SUNKEN)
         status_bar.pack(fill=tk.X, side=tk.BOTTOM)
@@ -92,7 +89,7 @@ class FacialExpressionMaker:
         """Detekuje segmenty s řečí vs. ticho"""
         threshold = 0.02 * np.max(np.abs(audio_data))
         
-        window_size = int(sample_rate * 0.02)  # 20ms okna
+        window_size = int(sample_rate * 0.02)  
         rms_values = []
         
         for i in range(0, len(audio_data) - window_size, window_size // 2):
