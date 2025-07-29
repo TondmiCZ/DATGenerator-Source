@@ -86,7 +86,7 @@ class FacialExpressionMaker:
             self.entry_output.insert(0, output_dir)
     
     def detect_speech_segments(self, audio_data, sample_rate):
-        """Detekuje segmenty s řečí vs. ticho"""
+        """Detekuje segmenty s řečí vs ticho"""
         threshold = 0.02 * np.max(np.abs(audio_data))
         
         window_size = int(sample_rate * 0.02)  
