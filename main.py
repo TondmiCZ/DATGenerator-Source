@@ -124,7 +124,6 @@ class FacialExpressionMaker:
         return t, low_energy, mid_energy, high_energy
     
     def generate_advanced_facial_data(self, audio_data, sample_rate):
-        """Pokročilé generování mimiky bez sliderů"""
         
         # Detekce řeči
         speech_mask, rms_values = self.detect_speech_segments(audio_data, sample_rate)
