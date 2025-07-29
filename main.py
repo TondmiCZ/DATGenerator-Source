@@ -125,7 +125,7 @@ class FacialExpressionMaker:
     
     def generate_advanced_facial_data(self, audio_data, sample_rate):
         
-        # Detekce řeč
+        # Detekce ře
         speech_mask, rms_values = self.detect_speech_segments(audio_data, sample_rate)
         
         # Frekvenční analýza
