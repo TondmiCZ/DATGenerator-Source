@@ -473,6 +473,7 @@ class FacialExpressionMaker:
             if not success:
                 failed_files.append(input_file)
         
+        # Dokončení
         self.processing = False
         self.btn_convert.config(state="normal")
         self.btn_cancel.config(state="disabled")
